@@ -12,13 +12,7 @@ body{
     object-fit: cover;
 
 }
-.sha{
-    position: absolute;
-    height: 0px;
-    width: 0px;
-    background-color: green;
-    box-shadow: 20px 15px 1000px 250px green;
-}
+
 .shal{
     position: absolute;
     height: 0px;
