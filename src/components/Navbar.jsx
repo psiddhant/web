@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white bg-opacity-10 lg:mt-3 mt-2 items-center  ml-14 backdrop-blur-md shadow-md fixed lg:w-[600px] w-[300px] rounded-lg
+    <nav className="bg-white bg-opacity-10 lg:mt-3 mt-2 items-center  ml-5 backdrop-blur-md shadow-md fixed lg:w-[600px] md:w-[600px] w-[300px] rounded-lg
      z-10 top-0">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -63,13 +63,16 @@ const Navbar = () => {
             <Link href="/">
               <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Home</li>
             </Link>
-            <Link href="/about">
+            <Link href="#about">
               <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">About</li>
             </Link>
-            <Link href="/services">
-              <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Services</li>
+            <Link href="/Employee">
+              <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Employee</li>
             </Link>
-            <Link href="/contact">
+            <Link href="#products">
+              <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Products</li>
+            </Link>
+            <Link href="#contact">
               <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Contact</li>
             </Link>
           </div>

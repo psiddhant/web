@@ -17,8 +17,7 @@ body{
     height: 0px;
     width: 0px;
     background-color: green;
-
-    box-shadow: 20px 20px 20000px 250px green;
+    box-shadow: 20px 15px 1000px 250px green;
 }
 .shal{
     position: absolute;
