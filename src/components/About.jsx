@@ -8,7 +8,7 @@ const About = () => {
             <h1>About Us</h1> 
         </div>
         <div className="shal"></div>
-        <div className="left-bottom fo mt-5 text-white  lg:text-5xl">
+        <div className="left-bottom fo mt-5 text-white   text-start lg:text-5xl">
             <p>For over 8 years,JAIVIK HABITAT FARMER  
             HORTICULUTRE PVT.LTD has been a trusted
             provider of high-quality fertilizers and manure. 

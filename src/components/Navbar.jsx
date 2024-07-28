@@ -10,9 +10,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white bg-opacity-10 lg:mt-3 mt-2 items-center  ml-5 backdrop-blur-md shadow-md fixed lg:w-[600px] md:w-[600px] w-[300px] rounded-lg
+    <nav className="bg-white bg-opacity-10 lg:mt-3 mt-2 items-center  ml-5 backdrop-blur-md shadow-md fixed lg:w-[700px] md:w-[600px] w-[300px] rounded-lg
      z-10 top-0">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
@@ -28,6 +28,9 @@ const Navbar = () => {
                 </Link>
                 <Link href="#Products">
                   <h1 className="text-white hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Products</h1>
+                </Link>
+                <Link href="/projects">
+                  <h1 className="text-white hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Projects</h1>
                 </Link>
                 <Link href="/Employee">
                   <h1 className="text-white hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Employee</h1>
@@ -71,6 +74,9 @@ const Navbar = () => {
             </Link>
             <Link href="#products">
               <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Products</li>
+            </Link>
+            <Link href="/projects">
+              <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Projects</li>
             </Link>
             <Link href="#contact">
               <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Contact</li>
