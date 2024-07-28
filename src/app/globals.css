@@ -2,7 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
 
+
+.fo{
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  text-align: center;
+  font-style: normal;
+}
+
+.line{
+  text-align: center;
+  align-content: center;
+  width: 100%;
+}
 body{
     background-color: #181818;
 }
@@ -10,9 +25,14 @@ body{
 .bg-img{
     background-image: url("../../public/background.png");
     object-fit: cover;
+    align-content: center;
 
 }
-
+.hello{
+  display: flex;
+  align-content: center;
+  text-align: center;
+}
 .shal{
     position: absolute;
     height: 0px;
