@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white bg-opacity-10 lg:mt-3 mt-2 items-center  ml-5 backdrop-blur-md shadow-md fixed lg:w-[700px] md:w-[600px] w-[300px] rounded-lg
+    <nav className="bg-white bg-opacity-10 lg:mt-3 mt-2 items-center  ml-5 backdrop-blur-md shadow-md fixed lg:w-[900px] md:w-[700px] w-[300px] rounded-lg
      z-10 top-0">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -34,6 +34,9 @@ const Navbar = () => {
                 </Link>
                 <Link href="/Employee">
                   <h1 className="text-white hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Employee</h1>
+                </Link>
+                <Link href="/canteen">
+                  <h1 className="text-white hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Canteen/Distributor</h1>
                 </Link>
                 <Link href="#contact">
                   <h1 className="text-white hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Contact</h1>
@@ -77,6 +80,9 @@ const Navbar = () => {
             </Link>
             <Link href="/projects">
               <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Projects</li>
+            </Link>
+            <Link href="/canteen">
+              <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Canteen/Distributor</li>
             </Link>
             <Link href="#contact">
               <li className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">Contact</li>
