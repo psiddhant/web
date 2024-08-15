@@ -85,7 +85,7 @@ const Page = () => {
                                 { name: "dateOfBirth", placeholder: "Date Of Birth", type: "date" },
                                 { name: "occupation", placeholder: "Occupation" },
                                 { name: "workExperience", placeholder: "Work Experience" },
-                                { name: "date", placeholder: "Date", type: "date" },
+                                { name: "Today's Date", placeholder: "Date", type: "date" },
                                 { name: "recommendBy", placeholder: "Recommended By" },
                                 { name: "postName", placeholder: "Post Name" },
                                 { name: "workingArea", placeholder: "Working Area" },
