@@ -1,21 +1,21 @@
-"use client"
-import React, { useState } from 'react'
+"use client";
+import Link from 'next/link';
+import React, { useState } from 'react';
 
 const Contact = () => {
-    const[user, setUser] = useState({
+    const [user, setUser] = useState({
         username: "",
         phone: "",
         email: "",
         message: "",
-      })
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const [status, setStatus] = useState(null);
+    });
+    const [status, setStatus] = useState(null);
 
-      function handleChange(e) {
+    function handleChange(e) {
         const name = e.target.name;
         const value = e.target.value;
 
-        setUser((prevUser) => ({...prevUser, [name] : value}));
+        setUser((prevUser) => ({ ...prevUser, [name]: value }));
     }
 
     const handleSubmit = async (e) => {
@@ -23,67 +23,95 @@ const Contact = () => {
 
         try {
             const response = await fetch('/api/contact', {
-              method:'POST',
-              headers:{'Content_Type':'application/json'},
-              body:JSON.stringify({
-                username:user.username,
-                phone:user.phone,
-                email:user.email,
-                message:user.message,
-      
-                })
-            })
-            // Set the status based on the response from the API route
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user),
+            });
+
             if (response.status === 200) {
                 setUser({
-              username:"",
-              phone:"",
-              email:"",
-              message:""
-                })
+                    username: "",
+                    phone: "",
+                    email: "",
+                    message: "",
+                });
                 setStatus('success');
             } else {
                 setStatus('error');
             }
-
-        }catch (e) {
-            console.log(e)
+        } catch (e) {
+            console.log(e);
         }
+    };
 
-    }
-
-
-  return (
-    <div id='contact' className=' w-full mt-48  text-white flex justify-center items-center text-center'>
-        <div className="s"></div>
-       <main>
-        <div className="top ">
-            <h1 className='lg:text-5xl text-3xl'>Contact</h1>
+    return (
+        <div id="contact" className="bg-gradient-to-r pt-48 from-blue-100 pb-48 to-blue-200 min-h-screen flex flex-col items-center justify-center p-6 text-white">
+            <main className="w-full max-w-4xl bg-white text-gray-800 rounded-lg shadow-lg p-8">
+            <Link href="/">
+                        <button className="bg-blue-700 px-4 py-2 rounded-full text-white hover:bg-blue-800 mb-7 w-full  transition-colors">Back</button>
+                    </Link>
+                <h1 className="text-3xl lg:text-5xl font-bold text-center mb-8">Contact Us</h1>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="flex flex-col">
+                        <label htmlFor="username" className="text-sm font-semibold text-gray-600 mb-2">Name</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your name"
+                            value={user.username}
+                            onChange={handleChange}
+                            className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="phone" className="text-sm font-semibold text-gray-600 mb-2">Phone</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                            value={user.phone}
+                            onChange={handleChange}
+                            className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="email" className="text-sm font-semibold text-gray-600 mb-2">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            value={user.email}
+                            onChange={handleChange}
+                            className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        />
+                    </div>
+                    <div className="flex flex-col">
+                        <label htmlFor="message" className="text-sm font-semibold text-gray-600 mb-2">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Enter your message"
+                            value={user.message}
+                            onChange={handleChange}
+                            className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            rows="6"
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="bg-blue-600 hover:bg-blue-700 w-full rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 text-white font-semibold py-2 px-4  transition duration-200"
+                    >
+                        Submit
+                    </button>
+                    {status === 'success' && <p className='text-blue-600 text-center mt-4'>Message sent successfully!</p>}
+                    {status === 'error' && <p className='text-red-600 text-center mt-4'>Error sending message. Please try again.</p>}
+                </form>
+            </main>
         </div>
-        
-        <div className="bottom text-white mt-20  mx-auto    p-4">
-            <form  onSubmit={handleSubmit}>
-                <div  className='mb-3'>
-                    <input   onChange={handleChange} type="text" placeholder='Name'  className='bg-[#8F8D8D] pl-3 bg-opacity-50 text-white  w-72  lg:w-96 h-10 border-none rounded-full'  value={user.username}  name='username'/>
-                </div>
-                <div  className='mb-3'>
-                    <input  onChange={handleChange} type="number" placeholder='Phone'  className='bg-[#8F8D8D] pl-3 bg-opacity-50 text-white   w-72  lg:w-96 h-10 border-none rounded-full'  value={user.phone}  name='phone'/>
-                </div>
-            
-                <div  className='mb-3'>
-                    
-                    <input  onChange={handleChange} type="email" placeholder='Email'  className='bg-[#8F8D8D] pl-3 bg-opacity-50 text-white   w-72  lg:w-96 h-10 border-none rounded-full'  value={user.email}  name='email'/>
-                </div>
-                <div  className='mb-3'>
-                    <textarea  onChange={handleChange} type="text" placeholder='message'  className='bg-[#8F8D8D] pl-3 bg-opacity-50 text-white     w-72  lg:w-96 h-32 border-none rounded-lg'  value={user.message}  name='message'/>
-                </div>
-                <button type='submit' className='bg-[#8F8D8D] opacity-50   h-10 rounded-full  w-72  lg:w-96 text-white'>SUBMIT</button>
-            </form>
-
-        </div>
-       </main>
-    </div>
-  )
+    );
 }
 
-export default Contact
+export default Contact;

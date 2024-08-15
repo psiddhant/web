@@ -14,18 +14,24 @@ const Product = () => {
   ];
 
   return (
-    <div id="Products" className="  mb:h-[3500px]      lg:mt-0 lg:mb-32 text-white">
-      <div className="top mt-9">
-        <h1 className="uppercase text-4xl text-center font-extrabold shadow-inherit">Products</h1>
-      </div>
-      <div className="bottom lg:pl-28 pt-40 pl-[50px] flex flex-wrap gap-20">
-        {products.map((product, index) => (
-          <div key={index} className="card h-20 content-center text-center  overflow-hidden bg-[#D9D9D9] bg-opacity-10 w-64 rounded-lg">
-           
-            <h1 className="">{product.name}</h1>
-           
-          </div>
-        ))}
+    <div id="Products" className=" py-12 lg:py-24 h-[1300px] lg:h-[1000px]">
+      <div className="cursor-pointer container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h1 className=" uppercase text-[3rem] pb-16 md:text-5xl lg:text-6xl font-extrabold mb-4">
+            Products
+          </h1>
+        </div>
+        <div className="flex flex-wrap  justify-center gap-8 text-white md:gap-12">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="card bg-black shadow-lg shadow-orange-600/90 bg-opacity-50 text-center p-6 rounded-lg transform transition-transform hover:scale-105"
+            >
+              <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
+              
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -62,8 +62,8 @@ const Page = () => {
               <div className="w-24 h-full bg-indigo-500"></div>
             </div>
             <div className="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-              <h1 className="sm:w-2/5 text-white font-medium title-font text-2xl mb-2 sm:mb-0">Our Projects</h1>
-              <p className="sm:w-3/5 leading-relaxed text-end text-white sm:pl-10 pl-0">See Our Projects Below.</p>
+              <h1 className="sm:w-2/5  font-medium title-font text-2xl mb-2 sm:mb-0">Our Projects</h1>
+              <p className="sm:w-3/5 leading-relaxed text-end  sm:pl-10 pl-0">See Our Projects Below.</p>
             </div>
           </div>
           <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
@@ -72,8 +72,8 @@ const Page = () => {
                 <div className="rounded-lg h-64 overflow-hidden">
                   <img alt={project.title} className="object-cover object-center h-full w-full" src={project.imageUrl} />
                 </div>
-                <h2 className="text-xl font-medium title-font text-white mt-5">{project.title}</h2>
-                <p className="text-white leading-relaxed mt-2">{project.description}</p>
+                <h2 className="text-xl font-medium title-font  mt-5">{project.title}</h2>
+                <p className=" leading-relaxed mt-2">{project.description}</p>
                <div className='mt-4'>
                <Link href={project.link} className='bg-white text-black py-1 px-5 rounded-full mt-8'>Get More Details</Link>
                </div>

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const Page = () => {
@@ -86,57 +87,75 @@ const Page = () => {
     };
 
     return (
-        <div className='h-screen w-full justify-center items-center text-center pt-20 bg-[#262626]'>
-            <section className='w-full items-center text-center content-center'>
-                <div className='flex w-full justify-center items-center content-center text-center'>
-                    <h1 className='text-xl justify-center flex text-center text-white shadow-lg'>
-                        APPLICATION FORM DISTRIBUTOR/ANNDATA CANTEEN BAZAAR
-                    </h1>
-                </div>
-            </section>
-            <form onSubmit={handleSubmit}>
-                <div className='flex lg:px-52 flex-wrap mt-7 justify-center gap-8'>
+        <div className='flex pt-24 pb-80 flex-col min-h-screen  overflow-x-hidden overflow-hidden bg-gradient-to-r from-blue-100 to-blue-200 p-8'>
+            <div className='flex flex-col items-center mb-8'>
+                <h1 className='text-2xl font-extrabold text-gray-800 mb-4'>
+                    Distributor/Annadata Canteen Bazaar Application Form
+                </h1>
+                <p className='text-lg text-gray-600 mb-6'>
+                    Please complete the form below to submit your application.
+                </p>
+            </div>
+            <form onSubmit={handleSubmit} className='max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl'>
+            <Link href="/">
+                        <button className="bg-blue-700 px-4 py-2 mb-6 rounded-full text-white hover:bg-blue-800 transition-colors">Back</button>
+                    </Link>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     <div>
-                        <input type="text" name='name' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Enter Your Name' onChange={handleChange} value={user.name} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Your Name</label>
+                        <input type="text" name='name' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Enter Your Name' onChange={handleChange} value={user.name} />
                     </div>
                     <div>
-                        <input type="text" name='fathersName' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Father`s Name' onChange={handleChange} value={user.fathersName} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Father's Name</label>
+                        <input type="text" name='fathersName' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Father’s Name' onChange={handleChange} value={user.fathersName} />
                     </div>
                     <div>
-                        <input type="date" name='dob' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Date Of Birth' onChange={handleChange} value={user.dob} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Date of Birth</label>
+                        <input type="date" name='dob' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' onChange={handleChange} value={user.dob} />
                     </div>
                     <div>
-                        <input type="text" name='number' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Number' onChange={handleChange} value={user.number} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Number</label>
+                        <input type="text" name='number' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Number' onChange={handleChange} value={user.number} />
                     </div>
                     <div>
-                        <input type="text" name='Aadhaar' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Aadhaar Number' onChange={handleChange} value={user.Aadhaar} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Aadhaar Number</label>
+                        <input type="text" name='Aadhaar' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Aadhaar Number' onChange={handleChange} value={user.Aadhaar} />
                     </div>
                     <div>
-                        <input type="text" name='Address' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Address' onChange={handleChange} value={user.Address} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Address</label>
+                        <input type="text" name='Address' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Address' onChange={handleChange} value={user.Address} />
                     </div>
                     <div>
-                        <input type="text" name='Nominee' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Nominee Name' onChange={handleChange} value={user.Nominee} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Nominee Name</label>
+                        <input type="text" name='Nominee' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Nominee Name' onChange={handleChange} value={user.Nominee} />
                     </div>
                     <div>
-                        <input type="text" name='Residence_Address' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Residence Address' onChange={handleChange} value={user.Residence_Address} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Residence Address</label>
+                        <input type="text" name='Residence_Address' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Residence Address' onChange={handleChange} value={user.Residence_Address} />
                     </div>
                     <div>
-                        <input type="text" name='BankName' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Enter Your Bank Name' onChange={handleChange} value={user.BankName} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Bank Name</label>
+                        <input type="text" name='BankName' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Bank Name' onChange={handleChange} value={user.BankName} />
                     </div>
                     <div>
-                        <input type="text" name='AccountNo' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Account No' onChange={handleChange} value={user.AccountNo} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Account No</label>
+                        <input type="text" name='AccountNo' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Account No' onChange={handleChange} value={user.AccountNo} />
                     </div>
                     <div>
-                        <input type="text" name='ChequeNo' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Cheque No' onChange={handleChange} value={user.ChequeNo} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Cheque No</label>
+                        <input type="text" name='ChequeNo' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Cheque No' onChange={handleChange} value={user.ChequeNo} />
                     </div>
                     <div>
-                        <input type="text" name='Security_Amount' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Security Amount' onChange={handleChange} value={user.Security_Amount} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Security Amount</label>
+                        <input type="text" name='Security_Amount' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Security Amount' onChange={handleChange} value={user.Security_Amount} />
                     </div>
                     <div>
-                        <input type="text" name='gramPanchayatName' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Gram Panchayat Name' onChange={handleChange} value={user.gramPanchayatName} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Gram Panchayat Name</label>
+                        <input type="text" name='gramPanchayatName' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Gram Panchayat Name' onChange={handleChange} value={user.gramPanchayatName} />
                     </div>
                     <div>
-                        <select name='marital_status' className='bg-[#737373] px-8 py-3 rounded-full' onChange={handleChange} value={user.marital_status}>
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Marital Status</label>
+                        <select name='marital_status' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' onChange={handleChange} value={user.marital_status}>
                             <option value="">Select Marital Status</option>
                             <option value="single">Single</option>
                             <option value="married">Married</option>
@@ -144,43 +163,49 @@ const Page = () => {
                             <option value="widowed">Widowed</option>
                         </select>
                     </div>
-                   
                     <div>
-                        <input type="text" name='voter_id' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Voter ID' onChange={handleChange} value={user.voter_id} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Voter ID</label>
+                        <input type="text" name='voter_id' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Voter ID' onChange={handleChange} value={user.voter_id} />
                     </div>
                     <div>
-                        <input type="text" name='Nominee_Aadhaar' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Nominee Aadhaar' onChange={handleChange} value={user.Nominee_Aadhaar} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Nominee Aadhaar</label>
+                        <input type="text" name='Nominee_Aadhaar' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Nominee Aadhaar' onChange={handleChange} value={user.Nominee_Aadhaar} />
                     </div>
                     <div>
-                        <input type="text" name='block' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Block' onChange={handleChange} value={user.block} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Block</label>
+                        <input type="text" name='block' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Block' onChange={handleChange} value={user.block} />
                     </div>
                     <div>
-                        <input type="text" name='branch_manager' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='Branch Manager' onChange={handleChange} value={user.branch_manager} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Branch Manager</label>
+                        <input type="text" name='branch_manager' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='Branch Manager' onChange={handleChange} value={user.branch_manager} />
                     </div>
                     <div>
-                        <select name='Residence_status' className='bg-[#737373] px-8 py-3 rounded-full' onChange={handleChange} value={user.Residence_status}>
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Residence Status</label>
+                        <select name='Residence_status' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' onChange={handleChange} value={user.Residence_status}>
                             <option value="">Select Residence Status</option>
                             <option value="owner">Owner</option>
                             <option value="rented">Rented</option>
                         </select>
                     </div>
                     <div>
-                        <select name='Canteen' className='bg-[#737373] px-8 py-3 rounded-full' onChange={handleChange} value={user.Canteen}>
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>Canteen/Distributor Status</label>
+                        <select name='Canteen' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' onChange={handleChange} value={user.Canteen}>
                             <option value="">Select Canteen/Distributor Status</option>
                             <option value="Canteen">Canteen</option>
                             <option value="Distributor">Distributor</option>
                         </select>
                     </div>
                     <div>
-                        <input type="text" name='IFSC_CODE' className='bg-[#737373] px-8 py-3 rounded-full' placeholder='IFSC CODE' onChange={handleChange} value={user.IFSC_CODE} />
+                        <label className='block text-sm font-medium text-gray-700 mb-2'>IFSC Code</label>
+                        <input type="text" name='IFSC_CODE' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='IFSC Code' onChange={handleChange} value={user.IFSC_CODE} />
                     </div>
                 </div>
-                <button className='bg-[#737373] px-8 py-3 rounded-full mt-5' type='submit'>Submit</button>
-                {status === 'success' && <p className='text-green-500 mt-3'>Form submitted successfully!</p>}
-                {status === 'error' && <p className='text-red-500 mt-3'>Error submitting the form. Please try again.</p>}
+                <button className='w-full bg-blue-600 text-white px-6 py-3 rounded-full backdrop-blur-md mt-6 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' type='submit'>Submit</button>
+                {status === 'success' && <p className='text-green-600 text-center mt-4'>Form submitted successfully!</p>}
+                {status === 'error' && <p className='text-red-600 text-center mt-4'>Error submitting the form. Please try again.</p>}
             </form>
         </div>
-    )
+    );
 }
 
 export default Page;

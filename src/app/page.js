@@ -18,11 +18,11 @@ const page = () => {
   
   return (
     <div>
-    <Navbar/>
+  
      <Hero/>
      <About/>
      <Product/>
-     <Contact/>
+ 
     </div>
   )
 }

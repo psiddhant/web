@@ -4,7 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
 
-
+body{
+  /* Hide scrollbar */
+  overflow-x: hidden;
+}
 .fo{
   font-family: "Edu AU VIC WA NT Hand", cursive;
   font-optical-sizing: auto;
@@ -19,7 +22,7 @@
   width: 100%;
 }
 body{
-    background-color: #181818;
+    @apply:bg-gradient-to-r from-blue-100 to-blue-200;
 }
 
 .bg-img{
