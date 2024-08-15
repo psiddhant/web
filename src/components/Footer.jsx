@@ -68,8 +68,8 @@ const Footer = () => {
       </div>
       <div className="bg-gray-800">
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-400 text-sm text-center sm:text-left">© 2024 YourSiteName —
-            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-blue-500 ml-1" target="_blank">@YourHandle</a>
+          <p className="text-gray-400 text-sm text-center sm:text-left">© 2024 JAIVIK HABITAT FARMER HORTICULUTRE PVT.LTD  
+            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-blue-500 ml-1" target="_blank"></a>
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
             <a className="text-gray-400 hover:text-white" href="#">
