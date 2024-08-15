@@ -3,7 +3,7 @@ import React from 'react'
 
 const Hero = () => {
   const handleEmailClick = () => {
-    window.location.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=hariyalibazaar7@gmail.com.com&su=Inquiry&body=Hello,%20I%20would%20like%20to...';
+    window.location.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=hariyalibazaar7@gmail.com&su=Inquiry&body=Hello,%20I%20would%20like%20to...';
   };
   return (
     <div className='relative overflow-x-hidden items-center justify-center h-screen mb-12 bg-fixed bg-center bg-cover bg-img'>
@@ -16,7 +16,7 @@ const Hero = () => {
         <p className='text-base md:text-lg lg:text-xl'>
           CONTACT US : 8533093254  | <button 
           onClick={handleEmailClick} 
-          className=" text-white   rounded "
+          className=" text-white "
         >
          Email Us
         </button>
