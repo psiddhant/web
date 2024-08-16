@@ -12,7 +12,7 @@ const Page = () => {
         dateOfBirth: "",
         occupation: "",
         workExperience: "",
-        date: "",
+        date: "", // This corresponds to "Today's Date"
         recommendBy: "",
         postName: "",
         workingArea: "",
@@ -61,16 +61,15 @@ const Page = () => {
 
         } catch (e) {
             console.log(e);
+            setStatus('error');
         }
     };
 
     return (
-        <div className="bg-gradient-to-r from-blue-100 to-blue-200  flex flex-col">
-           
-
+        <div className="bg-gradient-to-r from-blue-100 to-blue-200 flex flex-col">
             <main className="flex-grow flex items-center justify-center py-12">
                 <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl p-8">
-                <Link href="/">
+                    <Link href="/">
                         <button className="bg-blue-700 px-4 w-full mb-5 py-2 rounded-lg text-white hover:bg-blue-800 transition-colors">Back</button>
                     </Link>
                     <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Apply for the Job</h2>
@@ -85,7 +84,7 @@ const Page = () => {
                                 { name: "dateOfBirth", placeholder: "Date Of Birth", type: "date" },
                                 { name: "occupation", placeholder: "Occupation" },
                                 { name: "workExperience", placeholder: "Work Experience" },
-                                { name: "Today's Date", placeholder: "Date", type: "date" },
+                                { name: "date", placeholder: "Date", type: "date" }, // Fixed name attribute
                                 { name: "recommendBy", placeholder: "Recommended By" },
                                 { name: "postName", placeholder: "Post Name" },
                                 { name: "workingArea", placeholder: "Working Area" },
@@ -106,7 +105,7 @@ const Page = () => {
                             ))}
                         </div>
                         <div className="mt-8 text-center">
-                            <button type="submit" className="bg-blue-600 w-full rounded-full text-white px-6 py-3  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <button type="submit" className="bg-blue-600 w-full rounded-full text-white px-6 py-3 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 Submit
                             </button>
                         </div>
