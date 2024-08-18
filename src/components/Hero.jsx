@@ -16,7 +16,7 @@ const Hero = () => {
         {/* Animated Image */}
         <motion.div
           animate={{ rotateY: [0, 360] }}
-          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+          transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
           className='mb-6'
         >
           <Image src="/label.png" height={200} width={200} />
