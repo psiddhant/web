@@ -1,11 +1,11 @@
-import dbConn from "@/utils/dbConn";
+import dbConnect from '../../../utils/dbConn';
 import { NextResponse } from "next/server";
-import Applications from "@/model/Applications";
+import Applications from '../../../model/Applications';
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    await dbConn();
+    await dbConnect();
 
     await Applications.create(body);
 

@@ -1,11 +1,11 @@
-import dbConn from "@/utils/dbConn";
+import dbConnect from '../../../utils/dbConn'
 import { NextResponse } from "next/server";
-import Canteen from "@/model/canteen";
+import Canteen from '../../../model/canteen';
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    await dbConn();
+    await dbConnect();
 
     await Canteen.create(body);
 
