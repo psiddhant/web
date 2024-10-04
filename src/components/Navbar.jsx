@@ -10,6 +10,7 @@ const navItems = [
   { href: "/projects", text: "Projects" },
   { href: "/Employee", text: "Employee" },
   { href: "/canteen", text: "Canteen/Distributor" },
+  { href: "/payment", text: "Payment" },
   { href: "/ContactUs", text: "ContactUs" },
 ];
 
@@ -21,12 +22,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-10 backdrop-blur-md shadow-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-30 backdrop-blur-lg shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/">
-              <h1 className="text-xl text-teal-600 font-bold">JHFHPL</h1>
+              <h1 className="text-xl text-green-600 font-bold">JHFHPL</h1>
             </Link>
           </div>
           <div className="hidden md:block">
@@ -38,7 +39,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-teal-600 hover:text-gray-600">
+            <button onClick={toggleMenu} className="text-green-600 hover:text-gray-600">
               {isOpen ? (
                 <FaTimes className="h-6 w-6" />
               ) : (
@@ -64,7 +65,7 @@ const Navbar = () => {
 
 const NavItem = ({ href, text, mobile }) => (
   <Link href={href}>
-    <span className={`text-teal-600 hover:text-gray-600 ${mobile ? 'block' : 'inline-block'} px-3 py-2 rounded-md text-sm font-medium`}>
+    <span className={`text-green-600 hover:text-gray-600 ${mobile ? 'block' : 'inline-block'} px-3 py-2 rounded-md text-sm font-medium`}>
       {text}
     </span>
   </Link>

@@ -1,100 +1,92 @@
-// components/Footer.js
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font bg-black ">
-      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-          <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
-            <Image src={"/logo.png"} height={30} width={30}/>
-            <span className="ml-3 text-xl text-white">JHFHPL</span>
-          </a>
-          <p className="mt-2 text-sm text-gray-400">Enhancing experiences with top-notch solutions.</p>
-        </div>
-        <div className="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">Navigate</h2>
-            <nav className="list-none mb-10">
-              <li>
-                <Link href="/">
-                  <h1 className="text-gray-400 hover:text-white">Home</h1>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#about">
-                  <h1 className="text-gray-400 hover:text-white">About</h1>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#Products">
-                  <h1 className="text-gray-400 hover:text-white">Products</h1>
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects">
-                  <h1 className="text-gray-400 hover:text-white">Projects</h1>
-                </Link>
-              </li>
-            </nav>
+    <footer className="bg-gradient-to-r from-green-800 to-green-900 text-white">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mb-8">
+            <Link href="/" className="flex items-center mb-4">
+              <Image src="/logo.png" height={40} width={40} alt="JHFHPL Logo" className="mr-3" />
+              <span className="text-2xl font-bold">JHFHPL</span>
+            </Link>
+            <p className="text-sm text-gray-300 mb-4">
+              Enhancing experiences with top-notch agricultural solutions.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <FaFacebookF />
+              </a>
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <FaTwitter />
+              </a>
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <FaInstagram />
+              </a>
+              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <FaLinkedinIn />
+              </a>
+            </div>
           </div>
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">Employee</h2>
-            <nav className="list-none mb-10">
-              <li>
-                <Link href="/Employee">
-                  <h1 className="text-gray-400 hover:text-white">Employee</h1>
-                </Link>
-              </li>
-              <li>
-                <Link href="/canteen">
-                  <h1 className="text-gray-400 hover:text-white">Canteen/Distributor</h1>
-                </Link>
-              </li>
-            </nav>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              {['Home', 'About', 'Products', 'Projects'].map((item) => (
+                <li key={item}>
+                  <Link href={item === 'Home' ? '/' : `/#${item.toLowerCase()}`} className="text-gray-300 hover:text-white transition-colors">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">Contact</h2>
-            <nav className="list-none mb-10">
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <ul className="space-y-2">
               <li>
-                <Link href="/ContactUs">
-                  <h1 className="text-gray-400 hover:text-white">Contact</h1>
+                <Link href="/Employee" className="text-gray-300 hover:text-white transition-colors">
+                  Employee Application
                 </Link>
               </li>
-            </nav>
+              <li>
+                <Link href="/canteen" className="text-gray-300 hover:text-white transition-colors">
+                  Canteen/Distributor Application
+                </Link>
+              </li>
+              <li>
+                <Link href="/ContactUs" className="text-gray-300 hover:text-white transition-colors">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+            <ul className="space-y-2">
+              <li className="flex items-center">
+                <FaPhoneAlt className="mr-2" />
+                <a href="tel:+918533093254" className="text-gray-300 hover:text-white transition-colors">+91 8533093254</a>
+              </li>
+              <li className="flex items-center">
+                <FaEnvelope className="mr-2" />
+                <a href="mailto:hariyalibazaar7@gmail.com" className="text-gray-300 hover:text-white transition-colors">hariyalibazaar7@gmail.com</a>
+              </li>
+              <li className="flex items-start">
+                <FaMapMarkerAlt className="mr-2 mt-1" />
+                <span className="text-gray-300">123 Agriculture Street, Green City, India</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div className="bg-gray-800">
-        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-400 text-sm text-center sm:text-left">© 2024 JAIVIK HABITAT FARMER HORTICULUTRE PVT.LTD  
-            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-blue-500 ml-1" target="_blank"></a>
-          </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-            <a className="text-gray-400 hover:text-white" href="#">
-              <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-400 hover:text-white" href="#">
-              <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-400 hover:text-white" href="#">
-              <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-400 hover:text-white" href="#">
-              <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0" className="w-5 h-5" viewBox="0 0 24 24">
-                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-                <circle cx="4" cy="4" r="2" stroke="none"></circle>
-              </svg>
-            </a>
-          </span>
+      <div className="bg-green-900 py-4">
+        <div className="container mx-auto px-6 text-center text-sm">
+          <p>&copy; {new Date().getFullYear()} JAIVIK HABITAT FARMER HORTICULTURE PVT. LTD. All rights reserved.</p>
         </div>
       </div>
     </footer>
