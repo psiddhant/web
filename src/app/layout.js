@@ -1,9 +1,21 @@
-import { Inter } from "next/font/google";
+import { Italiana, Barlow } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer"
 
-const inter = Inter({ subsets: ["latin"] });
+const italiana = Italiana({ 
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-italiana',
+});
+
+const barlow = Barlow({ 
+  weight: ['400', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-barlow',
+});
 
 export const metadata = {
   title: "JAIVIK HABITAT FACRMER HORTICULUTRE PVT.LTD || EFFCO AH",
@@ -15,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
      
-      <body className={inter.className}>
+      <body className={`${italiana.variable} ${barlow.variable} font-barlow`}>
    <>
    <Navbar/>
    {children}

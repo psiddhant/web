@@ -200,7 +200,7 @@ const Page = () => {
                         <input type="text" name='IFSC_CODE' className='w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500' placeholder='IFSC Code' onChange={handleChange} value={user.IFSC_CODE} />
                     </div>
                 </div>
-                <button className='w-full bg-blue-600 text-white px-6 py-3 rounded-full backdrop-blur-md mt-6 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' type='submit'>Submit</button>
+              <button className='w-full bg-blue-600 text-white px-6 py-3 rounded-full backdrop-blur-md mt-6 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' type='submit'>Submit</button>
                 {status === 'success' && <p className='text-green-600 text-center mt-4'>Form submitted successfully!</p>}
                 {status === 'error' && <p className='text-red-600 text-center mt-4'>Error submitting the form. Please try again.</p>}
             </form>

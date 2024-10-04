@@ -1,10 +1,9 @@
 "use client"
-import About from "@/components/About"
-import Contact from "@/components/Contact"
-import Hero from "@/components/Hero"
-import Navbar from "@/components/Navbar"
-import Product from "@/components/Product"
+
 import { useEffect } from "react"
+import Hero from "../components/Hero"
+import About from "../components/About"
+import Product from "../components/Product"
 
 const page = () => {
   useEffect(() => {
