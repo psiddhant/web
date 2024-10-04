@@ -16,7 +16,7 @@ const PaymentPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-600 to-purple-800 flex flex-col">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex-grow flex items-center justify-center p-4">
         <div className="bg-white bg-opacity-80 backdrop-blur-lg rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
           <div className="bg-indigo-600 p-6 text-white">
