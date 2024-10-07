@@ -4,7 +4,6 @@ import mongoose from 'mongoose';
 const CanteenSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
   },
   fathersName: {
     type: String,
