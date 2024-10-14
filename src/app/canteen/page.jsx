@@ -8,12 +8,6 @@ import {
 } from 'react-icons/fa';
 
 const Page = () => {
-  // States for OTP verification
-  const [otpSent, setOtpSent] = useState(false);
-  const [otp, setOtp] = useState('');
-  const [isVerified, setIsVerified] = useState(false);
-  const [otpError, setOtpError] = useState('');
-
   // Existing form states
   const [user, setUser] = useState({
     name: "", fathersName: "", address: "", dob: "", number: "", Aadhaar: "", Canteen: "",
@@ -59,60 +53,6 @@ const Page = () => {
       console.log(error);
       setStatus('error');
       setErrorMessage('Error submitting the form. Please try again.');
-    }
-  };
-
-  // Handle sending OTP
-  const handleSendOtp = async () => {
-    if (!user.number) {
-      setOtpError('Please enter a valid phone number.');
-      return;
-    }
-
-    try {
-      const response = await fetch('/api/send-otp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phoneNumber: user.number })
-      });
-
-      if (response.status === 200) {
-        setOtpSent(true);
-        setOtpError('');
-      } else {
-        const data = await response.json();
-        setOtpError(data.error || 'Failed to send OTP. Please try again.');
-      }
-    } catch (error) {
-      console.log(error);
-      setOtpError('Failed to send OTP. Please try again.');
-    }
-  };
-
-  // Handle verifying OTP
-  const handleVerifyOtp = async () => {
-    if (!otp) {
-      setOtpError('Please enter the OTP.');
-      return;
-    }
-
-    try {
-      const response = await fetch('/api/verify-otp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phoneNumber: user.number, otp })
-      });
-
-      if (response.status === 200) {
-        setIsVerified(true);
-        setOtpError('');
-      } else {
-        const data = await response.json();
-        setOtpError(data.error || 'Invalid OTP. Please try again.');
-      }
-    } catch (error) {
-      console.log(error);
-      setOtpError('Failed to verify OTP. Please try again.');
     }
   };
 
@@ -183,170 +123,90 @@ const Page = () => {
           </h1>
         </div>
 
-        {/* OTP Verification Section */}
-        {!isVerified ? (
-          <div className='p-8'>
-            {!otpSent ? (
-              // Step 1: Enter Phone Number and Send OTP
-              <div className="space-y-6">
-                <div className="relative">
-                  <label htmlFor="number" className="text-sm font-medium text-gray-700 mb-1 block">
-                    Enter The Number In This  Format: +91xxxxxxxxxx
-
-                  </label>
-                  <div className="relative rounded-md shadow-sm">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <FaPhone className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                    </div>
-                    <input
-                      type="tel"
-                      name="number"
-                      id="number"
-                      className="block w-full pl-10 pr-3 py-2 sm:text-sm rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-gray-50"
-                      placeholder="Phone Number"
-                      onChange={handleChange}
-                      value={user.number}
-                      required
-                    />
-                  </div>
-                </div>
-                {otpError && <p className='text-red-600'>{otpError}</p>}
-                <button
-                  className='w-full bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors'
-                  type='button'
-                  onClick={handleSendOtp}
-                >
-                  Send OTP
-                </button>
+        {/* Main Form Section */}
+        <form onSubmit={handleSubmit} className='p-8 grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {/* Phone Number Field */}
+          <div className="relative">
+            <label htmlFor="number" className="text-sm font-medium text-gray-700 mb-1 block">
+              Phone Number
+            </label>
+            <div className="relative rounded-md shadow-sm">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FaPhone className="h-5 w-5 text-gray-400" aria-hidden="true" />
               </div>
-            ) : (
-              // Step 2: Enter OTP and Verify
-              <div className="space-y-6">
-                <p className='text-gray-700'>An OTP has been sent to <strong>{user.number}</strong></p>
-                <div className="relative">
-                  <label htmlFor="otp" className="text-sm font-medium text-gray-700 mb-1 block">
-                    Enter OTP
-                  </label>
-                  <div className="relative rounded-md shadow-sm">
-                    <input
-                      type="text"
-                      name="otp"
-                      id="otp"
-                      className="block w-full pl-3 pr-3 py-2 sm:text-sm rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-gray-50"
-                      placeholder="OTP"
-                      onChange={(e) => setOtp(e.target.value)}
-                      value={otp}
-                      required
-                    />
-                  </div>
-                </div>
-                {otpError && <p className='text-red-600'>{otpError}</p>}
-                <button
-                  className='w-full bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors'
-                  type='button'
-                  onClick={handleVerifyOtp}
-                >
-                  Verify OTP
-                </button>
-                <button
-                  className='w-full bg-gray-600 text-white px-6 py-3 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors'
-                  type='button'
-                  onClick={() => {
-                    setOtpSent(false);
-                    setOtp('');
-                    setOtpError('');
-                  }}
-                >
-                  Resend OTP
-                </button>
-              </div>
-            )}
+              <input
+                type="tel"
+                name="number"
+                id="number"
+                className="block w-full pl-10 pr-3 py-2 sm:text-sm rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-gray-50"
+                placeholder="Phone Number"
+                onChange={handleChange}
+                value={user.number}
+                required
+              />
+            </div>
           </div>
-        ) : (
-          // Main Form Section
-          <form onSubmit={handleSubmit} className='p-8 grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {/* Phone Number Field (Read-Only) */}
-            <div className="relative">
-              <label htmlFor="number" className="text-sm font-medium text-gray-700 mb-1 block">
-                Phone Number
+
+          {/* Other Form Fields */}
+          {formFields.filter(field => field.name !== 'number').map((field, idx) => (
+            <div key={idx} className="relative">
+              <label htmlFor={field.name} className="text-sm font-medium text-gray-700 mb-1 block">
+                {field.placeholder}
               </label>
               <div className="relative rounded-md shadow-sm">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaPhone className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                  <field.icon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </div>
                 <input
-                  type="tel"
-                  name="number"
-                  id="number"
-                  className="block w-full pl-10 pr-3 py-2 sm:text-sm rounded-md bg-gray-100 cursor-not-allowed"
-                  placeholder="Phone Number"
-                  value={user.number}
-                  readOnly
+                  type={field.type || "text"}
+                  name={field.name}
+                  id={field.name}
+                  className="block w-full pl-10 pr-3 py-2 sm:text-sm rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-gray-50"
+                  placeholder={field.placeholder}
+                  onChange={handleChange}
+                  value={user[field.name]}
+                  required
                 />
               </div>
             </div>
+          ))}
 
-            {/* Other Form Fields */}
-            {formFields.filter(field => field.name !== 'number').map((field, idx) => (
-              <div key={idx} className="relative">
-                <label htmlFor={field.name} className="text-sm font-medium text-gray-700 mb-1 block">
-                  {field.placeholder}
-                </label>
-                <div className="relative rounded-md shadow-sm">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <field.icon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                  </div>
-                  <input
-                    type={field.type || "text"}
-                    name={field.name}
-                    id={field.name}
-                    className="block w-full pl-10 pr-3 py-2 sm:text-sm rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-gray-50"
-                    placeholder={field.placeholder}
-                    onChange={handleChange}
-                    value={user[field.name]}
-                    required
-                  />
+          {/* Dropdown Fields */}
+          {dropdownFields.map((field, idx) => (
+            <div key={idx} className="relative col-span-full">
+              <label htmlFor={field.name} className="text-sm font-medium text-gray-700 mb-1 block">
+                {field.label}
+              </label>
+              <div className="relative rounded-md shadow-sm">
+                <select
+                  name={field.name}
+                  id={field.name}
+                  className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md appearance-none bg-gray-50"
+                  onChange={handleChange}
+                  value={user[field.name]}
+                  required
+                >
+                  {field.options.map((option, optionIdx) => (
+                    <option key={optionIdx} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                  <FaChevronDown className="h-4 w-4 text-gray-400" aria-hidden="true" />
                 </div>
               </div>
-            ))}
-
-            {/* Dropdown Fields */}
-            {dropdownFields.map((field, idx) => (
-              <div key={idx} className="relative col-span-full">
-                <label htmlFor={field.name} className="text-sm font-medium text-gray-700 mb-1 block">
-                  {field.label}
-                </label>
-                <div className="relative rounded-md shadow-sm">
-                  <select
-                    name={field.name}
-                    id={field.name}
-                    className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md appearance-none bg-gray-50"
-                    onChange={handleChange}
-                    value={user[field.name]}
-                    required
-                  >
-                    {field.options.map((option, optionIdx) => (
-                      <option key={optionIdx} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                    <FaChevronDown className="h-4 w-4 text-gray-400" aria-hidden="true" />
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {/* Submit Button */}
-            <div className="col-span-full mt-6">
-              <button
-                className='w-full bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors'
-                type='submit'
-              >
-                Submit Application
-              </button>
             </div>
-          </form>
-        )}
+          ))}
+
+          {/* Submit Button */}
+          <div className="col-span-full mt-6">
+            <button
+              className='w-full bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors'
+              type='submit'
+            >
+              Submit Application
+            </button>
+          </div>
+        </form>
 
         {/* Status Messages */}
         {status === 'success' && <p className='text-green-600 text-center mt-4 pb-6'>Form submitted successfully!</p>}
